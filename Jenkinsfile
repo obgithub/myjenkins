@@ -6,7 +6,7 @@ node {
     }
     stage("composer_install") {
         // Run `composer update` as a shell script
-        sh 'composer install'
+        sh '/usr/local/bin/composer install'
     }
     stage("phpunit") {
         // Run PHPUnit
