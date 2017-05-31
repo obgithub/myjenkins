@@ -4,9 +4,13 @@ node {
     // using the built-in pipeline command
     deleteDir()
     }
+    stage('preparation') {
+        // Checkout the master branch of the Laravel framework repository
+        git branch: 'master', url: 'https://github.com/obgithub/myjenkins.git'
+    }
     stage("composer_install") {
         // Run `composer update` as a shell script
-        sh '/usr/local/bin/composer install'
+        sh 'composer install'
     }
     stage("phpunit") {
         // Run PHPUnit
